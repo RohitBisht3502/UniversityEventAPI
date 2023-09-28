@@ -1,4 +1,4 @@
-# <h1 align = "center"> Restaurant Application API </h1>
+# <h1 align = "center"> University Event Management </h1>
 ___ 
 <p align="center">
 <a href="Java url">
@@ -21,7 +21,7 @@ ___
 
 ## Overview
 
-The Restaurant Management Application is a Spring Boot-based web application designed to help manage restaurant information. It allows users to perform various operations related to restaurant management, including adding new restaurants, updating specialties, and deleting restaurants from the system.
+The University Event Managementt Application is a Spring Boot-based web application designed to help manage students and events information. It allows users to perform various operations related to University management, including adding new events and students, updating specialties, and deleting events from the system.
 
 ## Technologies Used
 
@@ -35,24 +35,24 @@ The Restaurant Management Application is a Spring Boot-based web application des
 
 The Controller layer is responsible for handling incoming HTTP requests and delegating them to the appropriate services. It defines API endpoints for the following operations:
 
-1. **Get All Restaurants:** `GET /restaurants`
+1. **Get All Events:** `GET /Events` or GET /Students`
    
-   This endpoint retrieves a list of all registered restaurants.
+   This endpoint retrieves a list of all registered events and students list.
 
    ```java
-   @GetMapping("restaurants")
-   public List<Restaurant> getRestaurants() {
+   @GetMapping("Evetns")
+   public List<Event> getEvents() {
        
    }
    ```
 
-2. **Get Restaurant by ID:** `GET /restaurant/{id}`
+2. **Get Event by ID:** `GET /restaurant/{id}`
 
    This endpoint retrieves detailed information about a specific restaurant by its ID.
 
    ```java
-   @GetMapping("restaurant/{id}")
-   public Restaurant getRestaurant(@PathVariable Integer id) {
+   @GetMapping("event/{id}")
+   public Event getEvent(@PathVariable Integer id) {
       
    }
    ```
@@ -62,13 +62,13 @@ The Controller layer is responsible for handling incoming HTTP requests and dele
    This endpoint adds a new restaurant to the system.
 
    ```java
-   @PostMapping("restaurant")
-   public String addRestaurant(@Valid @RequestBody Restaurant restaurant) {
+   @PostMapping("Events")
+   public String addEvent(@Valid @RequestBody Event newEvent) {
     
    }
    ```
 
-4. **Add Restaurants:** `POST /restaurants`
+4. **Add Events:** `POST /restaurants`
 
    This endpoint adds multiple restaurants to the system.
 
@@ -79,29 +79,31 @@ The Controller layer is responsible for handling incoming HTTP requests and dele
    }
    ```
 
-5. **Update Restaurant Specialty:** `PUT /restaurant/id/{id}/specialty/{specialty}`
+5. **Update Event Specialty:** `PUT /Event/id/{id}/Department/{Department}`
 
-   This endpoint updates the specialty of a restaurant by its ID.
+   This endpoint updates the department of a Event by its ID.
 
    ```java
-   @PutMapping("restaurant/id/{id}/specialty/{updatedSpeciality}")
-   public String updateSpecialty(@PathVariable Integer id, @RequestParam String updadteSpecial) {
+   @PutMapping("Event/id/{id}/specialty/{updatedDepartment}")
+   public String updateDepartment(@PathVariable Integer id, @RequestParam String updadteDepartment) {
        
    }
    ```
 
-6. **Delete Restaurant:** `DELETE /restaurant/{id}`
+6. **Delete Event:** `DELETE /Event/{id}`
 
-   This endpoint deletes a restaurant by its ID.
+   This endpoint deletes a Event by its ID.
 
    ```java
-   @DeleteMapping("restaurant/{id}")
-   public String deleteRestaurant(@PathVariable Integer id) {
+   @DeleteMapping("Event/{id}")
+   public String deleteEvent(@PathVariable Integer id) {
        
    }
+
+### Same for 
    ```
 
-### Services
+7. **CRUD operation on Students also same like above** 
 
 The Services layer implements the core business logic, data processing, and interaction with the data repository. Key responsibilities include:
 
@@ -119,60 +121,57 @@ The project's database design includes tables for restaurant management, with fi
 
 ### Restaurant Table
 
-| Column Name    | Data Type      | Description                        |
-| -------------- | -------------- | ---------------------------------- |
-| restaurantId   | INT            | Unique identifier for each restaurant |
-| restaurantName | VARCHAR(255)   | Restaurant's name                   |
-| restaurantAddress | VARCHAR(255) | Restaurant's address                |
-| restaurantContact | VARCHAR(12)  | Restaurant's contact number (e.g., 911234567890) |
-| restaurantEmail | VARCHAR(255)  | Restaurant's email address          |
-| restaurantSpecialty | VARCHAR(255) | Restaurant's specialty              |
-| numberOfStaff  | INT            | Number of staff members             |
-| restaurantType | ENUM           | Restaurant type (e.g., FAMILY, CAFE, FAST_FOOD) |
-| created_at     | TIMESTAMP      | Timestamp of record creation        |
-| updated_at     | TIMESTAMP      | Timestamp of record modification    |
+1.Student table with columns:
+
+StudentId (Primary Key): A unique identifier for each student.
+FirstName: First name of the student.
+LastName: Last name of the student.
+Age: Age of the student.
+Department: Department to which the student belongs.
+
+2.Event table with columns:
+
+EventId (Primary Key): A unique identifier for each event.
+EventName: Name of the event.
+LocationOfEvent: Location where the event is held.
+Date: Date of the event.
+StartTime: Start time of the event.
+EndTime: End time of the event.
 
 The "Restaurant" table stores restaurant-related information, including restaurant IDs, names, addresses, contact information, specialties, staff counts, types, and timestamps for record creation and modification.
 
 This database design ensures data integrity and provides a structured approach to managing restaurant information within the application.
 
-## Data Structures Used
+## Database Used
 
 The project utilizes the following data structures:
 
-### Restaurant Class
+### Model
+1.Event
+2.Student
 
-The `Restaurant` class defines the structure for restaurant data and includes the following fields:
-
-- `restaurantId` (Restaurant ID): An integer that serves as a unique identifier for each restaurant.
-- `restaurantName` (Restaurant Name): A string representing the restaurant's name.
-- `restaurantAddress` (Restaurant Address): A string containing the restaurant's address.
-- `restaurantContact` (Restaurant Contact): A string representing the restaurant's contact number (e.g., 911234567890).
-- `restaurantEmail` (Restaurant Email): A string containing the restaurant's email address.
-- `restaurantSpecialty` (Restaurant Specialty): A string representing the restaurant's specialty.
-- `numberOfStaff` (Number of Staff): An integer indicating the number of staff members.
-- `restaurantType` (Restaurant Type): An enumeration specifying the restaurant type (e.g., FAMILY, CAFE, FAST_FOOD).
 
 ### Type Enum
 
-The `Type` enum enumerates the possible restaurant types:
+The `Type` enum enumerates the possible University department types:
 
-- `FAMILY`: Represents a family restaurant.
-- `CAFE`: Represents a cafe.
-- `FAST_FOOD`: Represents a fast-food restaurant.
+- `CIVIL
+- `MECHANICAL`
+- `COMPUTER_SCIENCE`
+- `ELECTRICAL
 - ...
 
-### ArrayList
+### MySql
 
 The project
 
- utilizes the `ArrayList` data structure to store and manage lists of `Restaurant` objects in various parts of the application. `ArrayList` provides dynamic sizing and efficient element retrieval, making it suitable for storing restaurant records and performing operations on them.
+ utilizes the `MySql` data structure to store and manage lists of `University` objects in various parts of the application. `MySql` provides permanent storage and efficient element retrieval, making it suitable for storing university records and performing operations on them.
 
-These data structures enable the application to organize and manipulate restaurant data efficiently while maintaining data integrity.
+These database enable the application to organize and manipulate restaurant data efficiently while maintaining data integrity.
 
 ## Project Summary
 
-The Restaurant Management Application is a robust Spring Boot application designed for efficient restaurant data management. It offers a set of RESTful API endpoints for various restaurant-related operations, including adding, retrieving, updating, and deleting restaurant information.
+The University Management Application is a robust Spring Boot application designed for efficient University Event data management. It offers a set of RESTful API endpoints for various restaurant-related operations, including adding, retrieving, updating, and deleting restaurant information.
 
 Key Features:
 
@@ -193,7 +192,7 @@ This project is licensed under the [MIT License](LICENSE).
 Thank you to the Spring Boot and Java communities for providing excellent tools and resources.
 
 ## Contact
-For questions or feedback, please contact [Amit Ashok Swain](mailto:business.amitswain@gmail.com)
+For questions or feedback, please contact [ROHIT SINGH BISHT](mailto:business.rohitbisht3502@gmail.com)
 
 
 
