@@ -101,9 +101,10 @@ The Controller layer is responsible for handling incoming HTTP requests and dele
    }
 
 ### Same for 
+7. **CRUD operation on Students also same like above** 
    ```
 
-7. **CRUD operation on Students also same like above** 
+
 
 The Services layer implements the core business logic, data processing, and interaction with the data repository. Key responsibilities include:
 
