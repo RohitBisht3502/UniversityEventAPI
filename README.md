@@ -70,11 +70,11 @@ The Controller layer is responsible for handling incoming HTTP requests and dele
 
 4. **Add Events:** `POST /events`
 
-   This endpoint adds multiple restaurants to the system.
+   This endpoint adds multiple event to the system.
 
    ```java
    @PostMapping("events")
-   public String addRestaurants(@Valid @RequestBody List<event> event) {
+   public String addEvents(@Valid @RequestBody List<event> event) {
        
    }
    ```
