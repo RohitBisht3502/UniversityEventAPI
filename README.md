@@ -46,9 +46,9 @@ The Controller layer is responsible for handling incoming HTTP requests and dele
    }
    ```
 
-2. **Get Event by ID:** `GET /restaurant/{id}`
+2. **Get Event by ID:** `GET /event/{id}`
 
-   This endpoint retrieves detailed information about a specific restaurant by its ID.
+   This endpoint retrieves detailed information about a specific event by its ID.
 
    ```java
    @GetMapping("event/{id}")
@@ -57,9 +57,9 @@ The Controller layer is responsible for handling incoming HTTP requests and dele
    }
    ```
 
-3. **Add Restaurant:** `POST /restaurant`
+3. **Add Restaurant:** `POST /event`
 
-   This endpoint adds a new restaurant to the system.
+   This endpoint adds a new event to the system.
 
    ```java
    @PostMapping("Events")
@@ -68,13 +68,13 @@ The Controller layer is responsible for handling incoming HTTP requests and dele
    }
    ```
 
-4. **Add Events:** `POST /restaurants`
+4. **Add Events:** `POST /events`
 
    This endpoint adds multiple restaurants to the system.
 
    ```java
-   @PostMapping("restaurants")
-   public String addRestaurants(@Valid @RequestBody List<Restaurant> restaurants) {
+   @PostMapping("events")
+   public String addRestaurants(@Valid @RequestBody List<event> event) {
        
    }
    ```
